@@ -28,6 +28,7 @@ const defaultValue = {users:[]}
 
 ; (async function() {
 	const db = await DataBonk.create(path, defaultValue)
+	const users = db.root.traverse('users')
 	await users.create({name: 'Jon'})
 	await users.traverse(0).read()
 	await users.traverse(0).update({name: 'Jane'})
